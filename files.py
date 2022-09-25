@@ -38,3 +38,9 @@ print(path.dirname(file_path))
 print(path.splitext("file.txt"))
 
 print(path.abspath(path.join("..", "testdir")))
+
+TEST = os.environ.get(
+    "TEST",
+    "default value for environment variable"
+)
+print("test:", TEST)
