@@ -1,5 +1,6 @@
 import os
 from os import path
+from pathlib import Path
 
 print("ФАЙЛ MAIN.py:")
 file = open("main.py", "r")
@@ -16,21 +17,20 @@ file.close()
 # print('end')
 
 cur_path = os.getcwd()
-files_dir = os.path.join(cur_path, "files")
+files_dir = Path(cur_path) / "files"
 print(files_dir)
 try:
-    os.mkdir(files_dir)
+    files_dir.mkdir()
 except FileExistsError:
     pass
 
-file_path = os.path.join(files_dir, 'file.txt')
-with open(file_path, 'a+') as file:
+file_path = files_dir / 'file.txt'
+with file_path.open('a+') as file:
     file.write("123")
     file.seek(0)
     print(file.read())
 
-print(os.path.exists("file.txt"))
-
+print(Path("file.txt").exists())
 
 print(file_path)
 print(path.basename(file_path))
