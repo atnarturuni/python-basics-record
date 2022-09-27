@@ -1,11 +1,6 @@
-from translator import (
-    get_parameters,
-    print_translation,
-    DICT,
-    REVERSED_DICT,
-    prepare_word,
-    get_translation
-)
+from console import print_translation, get_parameters
+from data import DICT, REVERSED_DICT
+from service import get_translation, prepare_word
 
 while True:
     word, direction = get_parameters()

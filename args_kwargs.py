@@ -1,5 +1,4 @@
-from translator.data import DICT
-from translator.service import get_translation
+from translator import DICT, get_translation
 
 
 def test(a, b, *args, is_test=True, **kwargs):
