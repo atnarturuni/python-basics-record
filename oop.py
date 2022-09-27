@@ -1,5 +1,9 @@
+import random
+
+
 class Animal():
     _count = 0
+    force = 1
 
     def __init__(self, name, weight, color):
         self.__name = name
@@ -28,8 +32,20 @@ class Animal():
     def get_count():
         return Cat._count
 
+    def __add__(self, other):
+        if self.force > other.force:
+            winner_name = self.get_name()
+        elif self.force < other.force:
+            winner_name = other.get_name()
+        else:
+            selected = random.choice([self, other])
+            winner_name = selected.get_name()
+        print('победил', winner_name)
+
 
 class Cat(Animal):
+    force = 2
+
     def __str__(self):
         return f'Кот {self.get_name()}'
 
@@ -56,10 +72,12 @@ vasya.say()
 vasya.mur()
 
 print(Cat.get_count())
+print(vasya + barsik)
 
 parrot = Animal("Кеша", 3, "red")
 print(parrot)
 parrot.say()
+print(parrot + vasya)
 
 
 class Device():
